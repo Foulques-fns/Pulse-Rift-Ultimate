@@ -1,0 +1,9 @@
+{
+  "name": "Pulse Rift",
+  "short_name": "Pulse Rift",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#070914",
+  "theme_color": "#705cff",
+  "description": "Pulse Rift — arcade runner compétitif."
+}

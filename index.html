@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080914"><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css">
+<title>Pulse Rift</title></head><body>
+<div id="app">
+<header class="top"><button class="logo" data-view="home"><span class="logo-shard">◆</span><span><b>PULSE RIFT</b><small>ULTIMATE</small></span></button>
+<div class="top-right"><button id="coinsBtn">◈ <b id="coins">0</b></button><button id="profileTop" data-view="profile"><span id="miniAvatar">◆</span></button></div></header>
+
+<main>
+<section id="home" class="screen active"><div class="hero"><div class="brand-big"><div class="rift-logo">◆</div><div><h1>PULSE <span>RIFT</span></h1><small>BREAK THE LIMIT</small></div></div>
+<p class="eyebrow">NEXT-GEN ARCADE RUNNER</p><h2>RUN. JUMP. <span>RIFT.</span></h2><p>Des niveaux nerveux, des skins à collectionner, une boutique quotidienne et des courses contre tes amis.</p>
+<div class="hero-actions"><button class="primary big" data-view="levels">JOUER</button><button class="secondary big" data-view="daily">DÉFI DU JOUR</button></div>
+<div class="quick"><button data-view="skins">◆ Skins</button><button data-view="shop">◈ Boutique</button><button data-view="race">⚔ 1v1</button><button data-view="profile">● Profil</button></div></div>
+<div class="cards"><article><b id="homeLevels">24</b><span>MAPS</span></article><article><b id="homeSkins">42</b><span>SKINS</span></article><article><b id="homeTrails">32</b><span>TRAILS</span></article><article><b id="homeBest">0%</b><span>RECORD</span></article></div></section>
+
+<section id="levels" class="screen"><div class="section-head"><div><p class="eyebrow">LEVEL SELECT</p><h2>MAPS</h2></div><button class="ghost" data-view="home">←</button></div>
+<div class="filters"><select id="diff"><option value="all">Toutes difficultés</option><option>Easy</option><option>Normal</option><option>Hard</option><option>Harder</option><option>Insane</option><option>Extreme</option></select><select id="sort"><option value="id">Ordre</option><option value="diff">Difficulté</option><option value="best">Progression</option></select></div><div id="levelGrid" class="grid"></div></section>
+
+<section id="daily" class="screen"><div class="section-head"><div><p class="eyebrow">ROTATION 24H</p><h2>DAILY RIFT</h2></div><button class="ghost" data-view="home">←</button></div>
+<div class="daily-card"><div><span class="tag">DÉFI DU JOUR</span><h3 id="dailyName"></h3><p id="dailyDesc"></p><div class="daily-stats"><b id="dailyDiff"></b><b>Récompense <span id="dailyReward"></span> ◈</b></div></div><button class="primary" id="dailyPlay">JOUER</button></div>
+<div class="section-title">Série quotidienne</div><div id="streak" class="reward-row"></div></section>
+
+<section id="skins" class="screen"><div class="section-head"><div><p class="eyebrow">LOADOUT</p><h2>CUSTOMIZE</h2></div><button class="ghost" data-view="home">←</button></div>
+<div class="loadout"><div id="preview" class="preview">◆</div><div><h3 id="skinName"></h3><p id="trailName"></p><p id="loadoutInfo"></p></div></div>
+<div class="tabs"><button class="tab active" data-tab="skinTab">SKINS</button><button class="tab" data-tab="trailTab">TRAILS</button></div><div id="skinTab" class="cos-grid"></div><div id="trailTab" class="cos-grid hidden"></div></section>
+
+<section id="shop" class="screen"><div class="section-head"><div><p class="eyebrow">DAILY SHOP</p><h2>BOUTIQUE</h2></div><button class="ghost" data-view="home">←</button></div>
+<div class="shop-banner"><div><b>OFFRES DU JOUR</b><strong id="timer">00:00:00</strong></div><p>6 objets en rotation • remises exclusives • aucun argent réel</p></div><div id="shopGrid" class="shop-grid"></div></section>
+
+<section id="race" class="screen"><div class="section-head"><div><p class="eyebrow">RACE HUB</p><h2>1V1 RIFT</h2></div><button class="ghost" data-view="home">←</button></div>
+<div class="race-grid"><div class="race-card"><span class="tag">LOCAL</span><h3>Course contre le BOT</h3><p>Même map, même départ, progression en direct.</p><button class="primary" id="botRace">LANCER</button></div>
+<div class="race-card"><span class="tag">ONLINE</span><h3>Matchmaking Internet</h3><p id="onlineStatus">Serveur non configuré</p><button class="secondary" id="onlineRace">SE CONNECTER</button></div></div>
+<div class="race-note">Le mode Internet utilise l'API/WebSocket fourni dans <b>server/</b>. Aucun faux adversaire n'est présenté comme un joueur réel.</div></section>
+
+<section id="profile" class="screen"><div class="section-head"><div><p class="eyebrow">PLAYER</p><h2>PROFIL</h2></div><button class="ghost" data-view="home">←</button></div>
+<div class="profile-card"><div id="avatar" class="avatar">◆</div><div><input id="username" maxlength="16"><p id="rank"></p><div class="auth"><button id="register">CRÉER COMPTE</button><button id="login">CONNEXION</button><button id="logout">DÉCONNEXION</button></div></div></div>
+<div class="stat-grid" id="stats"></div><div class="section-title">Achievements</div><div id="achievements" class="achievement-grid"></div></section>
+
+<section id="leaderboard" class="screen"><div class="section-head"><div><p class="eyebrow">GLOBAL / LOCAL</p><h2>LEADERBOARDS</h2></div><button class="ghost" data-view="home">←</button></div><div class="leader-tabs"><button id="localBoard">LOCAL</button><button id="globalBoard">GLOBAL</button></div><div id="board"></div></section>
+
+<section id="settings" class="screen"><div class="section-head"><div><p class="eyebrow">SYSTEM</p><h2>SETTINGS</h2></div><button class="ghost" data-view="home">←</button></div>
+<div class="settings"><label>Musique <input id="music" type="range" min="0" max="100"></label><label>SFX <input id="sfx" type="range" min="0" max="100"></label><label>Particules <input id="particles" type="checkbox"></label><label>Screen shake <input id="shake" type="checkbox"></label><label>Mode performance <input id="performance" type="checkbox"></label><label>FPS <input id="showFps" type="checkbox"></label><button class="danger" id="reset">RESET SAVE</button></div></section>
+
+<section id="game" class="screen game-screen"><canvas id="canvas"></canvas><div class="hud"><div><b id="gname"></b><small id="gmode"></small></div><div class="bar"><i id="bar"></i></div><b id="pct">0%</b><span>◈ <b id="gcoins">0</b></span><button id="pause">Ⅱ</button></div><div id="jump" class="jump">JUMP</div>
+<div id="overlay" class="overlay hidden"><div class="modal"><p id="ovey" class="eyebrow">PAUSE</p><h2 id="ovtitle">PAUSE</h2><p id="ovtext"></p><div><button id="ovmain" class="primary">REPRENDRE</button><button id="ovrestart" class="secondary">RESTART</button><button id="ovexit" class="ghost">QUITTER</button></div></div></div></section>
+</main><nav class="bottom"><button data-view="home">⌂<small>Home</small></button><button data-view="levels">▣<small>Maps</small></button><button data-view="skins">◆<small>Skins</small></button><button data-view="shop">◈<small>Shop</small></button><button data-view="profile">●<small>Profil</small></button></nav>
+</div><script src="js/app.js"></script><script src="js/game.js"></script><script src="js/register-sw.js"></script></body></html>
